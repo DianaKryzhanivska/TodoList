@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { registerThunk } from "./operations";
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { loginThunk, logoutThunk, registerThunk } from "./operations";
 
 const initialState = {
   user: {
@@ -21,13 +21,36 @@ export const slice = createSlice({
         state.isLoading = false;
         state.user = payload.user;
       })
-      .addCase(registerThunk.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(registerThunk.rejected, (state, { payload }) => {
+      .addCase(loginThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload;
-      });
+        state.token = payload.token;
+        state.user = payload.user;
+      })
+      .addCase(logoutThunk.fulfilled, (state) => {
+        state.isLoading = false;
+        state.user = {
+          name: "",
+          email: "",
+        };
+        state.token = "";
+      })
+      .addMatcher(
+        isAnyOf(registerThunk.pending, loginThunk.pending, logoutThunk.pending),
+        (state) => {
+          state.isLoading = true;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          registerThunk.rejected,
+          loginThunk.rejected,
+          logoutThunk.rejected
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        }
+      );
   },
 });
 

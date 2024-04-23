@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../instance";
+import instance, { clearToken, setToken } from "../instance";
 
 export const registerThunk = createAsyncThunk(
   "user/register",
@@ -7,6 +7,31 @@ export const registerThunk = createAsyncThunk(
     try {
       const response = await instance.post("/user/register", body);
       return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const loginThunk = createAsyncThunk(
+  "user/login",
+  async (body, { rejectWithValue }) => {
+    try {
+      const response = await instance.post("/user/login", body);
+      setToken(response.data.token);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logoutThunk = createAsyncThunk(
+  "/user/logout",
+  async (_, { rejectWithValue }) => {
+    try {
+      clearToken();
+      await instance.post("/user/logout");
     } catch (error) {
       return rejectWithValue(error.message);
     }
