@@ -51,4 +51,8 @@ export const CloseBtn = styled.button`
     width: 40px;
     height: 40px;
   }
+
+  @media only screen and (min-width: 768px) {
+    right: 40px;
+  }
 `;

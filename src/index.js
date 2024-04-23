@@ -5,12 +5,19 @@ import { GlobalStyles } from "styles/GlobalStyles";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "styles/theme";
+import { Provider } from "react-redux";
+import { persistor, store } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ThemeProvider theme={theme}>
-    <BrowserRouter basename="/TodoList">
-      <App />
-      <GlobalStyles />
-    </BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/TodoList">
+          <App />
+          <GlobalStyles />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   </ThemeProvider>
 );
