@@ -24,7 +24,7 @@ export const Logo = styled(NavLink)`
     transition: 0.3s ease;
 
     &:hover {
-      color: #6aafe6;
+      color: ${({ theme }) => theme.colors.light};
     }
   }
 
@@ -57,7 +57,7 @@ export const Wrapper = styled.div`
   }
 
   & p {
-    color: #6a6a6f;
+    color: ${({ theme }) => theme.colors.light};
     text-align: center;
   }
 
@@ -101,14 +101,14 @@ export const SubmitBtn = styled.button`
   font-size: 16px;
   display: flex;
   justify-content: center;
-  background: #1e4776;
+  background: ${({ theme }) => theme.colors.dark};
   color: #fff;
   border-radius: 20px;
   margin-bottom: 20px;
   transition: 0.3s ease;
 
   &:hover {
-    background: #6aafe6;
+    background: ${({ theme }) => theme.colors.light};
   }
 `;
 
@@ -118,6 +118,6 @@ export const LinkBtn = styled(NavLink)`
   transition: 0.3s ease;
 
   &:hover {
-    color: #6aafe6;
+    color: ${({ theme }) => theme.colors.light};
   }
 `;

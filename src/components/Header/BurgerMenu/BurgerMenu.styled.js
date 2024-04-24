@@ -19,7 +19,7 @@ export const Content = styled.div`
   width: 200px;
   height: auto;
   overflow-y: auto;
-  background: #1e4776;
+  background: ${({ theme }) => theme.colors.dark};
   z-index: 100;
 
   @media only screen and (min-width: 768px) {

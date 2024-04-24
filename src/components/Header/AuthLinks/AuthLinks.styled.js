@@ -28,7 +28,7 @@ export const RegisterLink = styled(NavLink)`
   transition: 0.3s ease;
 
   &:hover {
-    background: #6aafe6;
+    background: ${({ theme }) => theme.colors.light};
   }
 
   @media only screen and (min-width: 768px) {
@@ -37,13 +37,13 @@ export const RegisterLink = styled(NavLink)`
 
   @media only screen and (min-width: 1440px) {
     font-size: 18px;
-    color: #1e4776;
-    border: 1px solid #1e4776;
+    color: ${({ theme }) => theme.colors.dark};
+    border: 1px solid ${({ theme }) => theme.colors.dark};
 
     &:hover {
       background: none;
-      color: #6aafe6;
-      border: 1px solid #6aafe6;
+      color: ${({ theme }) => theme.colors.light};
+      border: 1px solid ${({ theme }) => theme.colors.light};
     }
   }
 `;
@@ -54,16 +54,16 @@ export const LoginLink = styled(NavLink)`
   transition: 0.3s ease;
 
   &:hover {
-    background: #6aafe6;
+    background: ${({ theme }) => theme.colors.light};
   }
 
   @media only screen and (min-width: 1440px) {
     font-size: 18px;
-    color: #1e4776;
+    color: ${({ theme }) => theme.colors.dark};
 
     &:hover {
       background: none;
-      color: #6aafe6;
+      color: ${({ theme }) => theme.colors.light};
     }
   }
 `;
@@ -74,11 +74,11 @@ export const LogOutBtn = styled.button`
   border: 1px solid #fff;
   border-radius: 20px;
   font-size: 16px;
-  background: #1e4776;
+  background: ${({ theme }) => theme.colors.dark};
   transition: 0.3s ease;
 
   &:hover {
-    background: #6aafe6;
+    background: ${({ theme }) => theme.colors.light};
   }
 
   @media only screen and (min-width: 768px) {
@@ -87,8 +87,8 @@ export const LogOutBtn = styled.button`
 
   @media only screen and (min-width: 1440px) {
     background: none;
-    color: #6aafe6;
-    border: 1px solid #6aafe6;
+    color: ${({ theme }) => theme.colors.light};
+    border: 1px solid ${({ theme }) => theme.colors.light};
 
     &:hover {
       color: #fff;

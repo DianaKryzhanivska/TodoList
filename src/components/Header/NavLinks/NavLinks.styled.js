@@ -21,7 +21,7 @@ export const NavList = styled.ul`
   }
 
   & a.active {
-    background: #6aafe6;
+    background: ${({ theme }) => theme.colors.light};
   }
 
   @media only screen and (min-width: 768px) {
@@ -35,17 +35,17 @@ export const NavList = styled.ul`
 
     & a {
       font-size: 18px;
-      color: #1e4776;
-      border: 1px solid #1e4776;
+      color: ${({ theme }) => theme.colors.dark};
+      border: 1px solid ${({ theme }) => theme.colors.dark};
 
       &:hover {
-        color: #6aafe6;
-        border: 1px solid #6aafe6;
+        color: ${({ theme }) => theme.colors.light};
+        border: 1px solid ${({ theme }) => theme.colors.light};
       }
     }
 
     & a.active {
-      background: #1e4776;
+      background: ${({ theme }) => theme.colors.dark};
       color: #fff;
       border: 1px solid #fff;
     }

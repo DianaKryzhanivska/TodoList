@@ -26,7 +26,7 @@ export const Logo = styled(NavLink)`
     transition: 0.3s ease;
 
     &:hover {
-      color: #6aafe6;
+      color: ${({ theme }) => theme.colors.light};
     }
   }
 `;
@@ -49,7 +49,7 @@ export const AuthWrapper = styled.div`
 
   @media only screen and (min-width: 1440px) {
     & p {
-      color: #6aafe6;
+      color: ${({ theme }) => theme.colors.light};
     }
   }
 `;
@@ -66,7 +66,7 @@ export const BurgerBtn = styled.button`
     transition: 0.3s ease;
 
     &:hover {
-      color: #6aafe6;
+      color: ${({ theme }) => theme.colors.light};
     }
   }
 `;
