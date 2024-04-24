@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { CommonContainer } from "styles/GlobalStyles";
 
 export const Container = styled(CommonContainer)`
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 200px;
   background: #f7f8fa;
 `;
@@ -27,6 +27,22 @@ export const Logo = styled(NavLink)`
       color: #6aafe6;
     }
   }
+
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 20px;
+  }
+`;
+
+export const ImgFormBox = styled.div`
+  @media only screen and (min-width: 1440px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & img {
+      width: 600px;
+    }
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -43,6 +59,12 @@ export const Wrapper = styled.div`
   & p {
     color: #6a6a6f;
     text-align: center;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
