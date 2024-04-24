@@ -30,7 +30,6 @@ const Login = () => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      console.log(values);
       dispatch(loginThunk(values)).then(() => {
         navigate("/tasks");
       });

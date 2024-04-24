@@ -8,14 +8,16 @@ export const Wrapper = styled.nav`
 export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 
   & a {
+    display: block;
     color: #fff;
     padding: 8px 20px;
     border: 1px solid #fff;
     border-radius: 20px;
     font-size: 16px;
+    transition: 0.3s ease;
   }
 
   & a.active {
@@ -33,11 +35,17 @@ export const NavList = styled.ul`
 
     & a {
       font-size: 18px;
-      color: #6aafe6;
-      border: 1px solid #6aafe6;
+      color: #1e4776;
+      border: 1px solid #1e4776;
+
+      &:hover {
+        color: #6aafe6;
+        border: 1px solid #6aafe6;
+      }
     }
 
     & a.active {
+      background: #1e4776;
       color: #fff;
       border: 1px solid #fff;
     }

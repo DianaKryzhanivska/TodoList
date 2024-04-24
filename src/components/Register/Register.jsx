@@ -31,7 +31,6 @@ const Register = () => {
     },
     validationSchema: registerSchema,
     onSubmit: (values) => {
-      console.log(values);
       dispatch(registerThunk(values)).then(() => {
         navigate("/login");
       });

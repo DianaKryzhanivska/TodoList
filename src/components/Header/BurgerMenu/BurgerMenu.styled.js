@@ -28,12 +28,16 @@ export const Content = styled.div`
 `;
 
 export const Container = styled(CommonContainer)`
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 270px;
+  padding-bottom: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 270px;
 
   @media only screen and (min-width: 768px) {
-    padding-top: 250px;
-    padding-bottom: 250px;
+    padding-top: 350px;
+    padding-bottom: 150px;
+    gap: 350px;
   }
 `;
 

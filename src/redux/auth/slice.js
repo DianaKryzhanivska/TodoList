@@ -28,11 +28,13 @@ export const slice = createSlice({
       })
       .addCase(loginThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        state.isLoggedIn = true;
         state.token = payload.token;
         state.user = payload.user;
       })
       .addCase(logoutThunk.fulfilled, (state) => {
         state.isLoading = false;
+        state.isLoggedIn = false;
         state.user = {
           name: "",
           email: "",

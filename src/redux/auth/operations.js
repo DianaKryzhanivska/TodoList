@@ -43,8 +43,9 @@ export const logoutThunk = createAsyncThunk(
   "/user/logout",
   async (_, { rejectWithValue }) => {
     try {
+      const response = await instance.post("/user/logout");
       clearToken();
-      await instance.post("/user/logout");
+      return response.data;
     } catch (error) {
       switch (error.response.status) {
         case 401:

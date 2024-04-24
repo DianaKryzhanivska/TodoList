@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { CloseBtn, Container, Content, Overlay } from "./BurgerMenu.styled";
 import { MdOutlineClose } from "react-icons/md";
 import NavLinks from "../NavLinks/NavLinks";
+import AuthLinks from "../AuthLinks/AuthLinks";
 
 const BurgerMenu = ({ isOpen, onClose }) => {
   const handleKeyDown = useCallback(
@@ -41,6 +42,7 @@ const BurgerMenu = ({ isOpen, onClose }) => {
               <MdOutlineClose />
             </CloseBtn>
             <NavLinks />
+            <AuthLinks />
           </Container>
         </Content>
       </Overlay>
