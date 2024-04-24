@@ -37,3 +37,15 @@ export const logoutThunk = createAsyncThunk(
     }
   }
 );
+
+export const getUserInfoThunk = createAsyncThunk(
+  "user-info",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await instance.get("/user/user-info");
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
