@@ -5,7 +5,7 @@ import { CommonContainer } from "styles/GlobalStyles";
 export const Container = styled(CommonContainer)`
   padding-top: 20px;
   padding-bottom: 20px;
-  background: #f1f1f1;
+  background: #f7f8fa;
   display: flex;
   align-items: center;
   justify-content: space-between;
