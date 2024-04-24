@@ -4,7 +4,7 @@ import { CommonContainer } from "styles/GlobalStyles";
 
 export const Container = styled(CommonContainer)`
   padding-top: 50px;
-  padding-bottom: 150px;
+  padding-bottom: 200px;
   background: #f7f8fa;
 `;
 
@@ -12,7 +12,7 @@ export const Logo = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 
   & img {
     width: 40px;

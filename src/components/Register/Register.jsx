@@ -44,7 +44,7 @@ const Register = () => {
             <h2>Registration</h2>
             <p>
               Thank you for your interest in our platform! In order to register,
-              we need some information.
+              we need some information
             </p>
             <form onSubmit={formik.handleSubmit}>
               <InputBox>
