@@ -49,7 +49,7 @@ export const Wrapper = styled.div`
 export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 20px;
 
   & input {
@@ -58,6 +58,18 @@ export const InputBox = styled.div`
     padding: 12px 18px;
     background: #fff;
     border-radius: 20px;
+  }
+
+  & label {
+    position: relative;
+  }
+
+  & span {
+    position: absolute;
+    left: 18px;
+    bottom: -13px;
+    font-size: 14px;
+    color: #e85050;
   }
 `;
 
