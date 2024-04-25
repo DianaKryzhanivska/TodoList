@@ -35,9 +35,7 @@ export const Container = styled(CommonContainer)`
   gap: 270px;
 
   @media only screen and (min-width: 768px) {
-    padding-top: 350px;
     padding-bottom: 150px;
-    gap: 350px;
   }
 `;
 

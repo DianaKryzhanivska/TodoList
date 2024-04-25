@@ -57,7 +57,7 @@ export const Wrapper = styled.div`
   }
 
   & p {
-    color: ${({ theme }) => theme.colors.light};
+    color: #6a6a6f;
     text-align: center;
   }
 

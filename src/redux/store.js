@@ -15,7 +15,7 @@ import { configureStore } from "@reduxjs/toolkit";
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "accessToken", "isLoggedIn"],
 };
 
 const rootReducer = {

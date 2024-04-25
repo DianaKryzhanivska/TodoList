@@ -30,6 +30,7 @@ export const loginThunk = createAsyncThunk(
     try {
       const response = await instance.post("/user/login", body);
       setToken(response.data.token);
+      localStorage.setItem("accessToken", response.data.token);
       toast.success(`Welcome to TodoList ${response.data.user.name}!`);
       return response.data;
     } catch (error) {
@@ -43,9 +44,9 @@ export const logoutThunk = createAsyncThunk(
   "/user/logout",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await instance.post("/user/logout");
+      await instance.post("/user/logout");
       clearToken();
-      return response.data;
+      localStorage.clear();
     } catch (error) {
       switch (error.response.status) {
         case 401:
