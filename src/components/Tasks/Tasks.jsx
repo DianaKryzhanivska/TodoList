@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AddTaskBtn, Container } from "./Tasks.styled";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Modal from "components/Modal/Modal";
+import AddTaskForm from "components/AddTaskForm/AddTaskForm";
 
 const Tasks = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -29,7 +30,9 @@ const Tasks = () => {
           </ul>
         </Container>
       </section>
-      <Modal isOpen={openModal} onClose={handleCloseModal}></Modal>
+      <Modal isOpen={openModal} onClose={handleCloseModal}>
+        <AddTaskForm onClose={handleCloseModal} />
+      </Modal>
     </>
   );
 };

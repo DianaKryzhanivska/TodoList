@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { CloseBtn, Content, Overlay } from "./Modal.styled";
 import { MdOutlineClose } from "react-icons/md";
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({ isOpen, onClose, children }) => {
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Escape") {
@@ -38,6 +38,7 @@ const Modal = ({ isOpen, onClose }) => {
           <CloseBtn type="button" onClick={onClose}>
             <MdOutlineClose />
           </CloseBtn>
+          {children}
         </Content>
       </Overlay>
     </>

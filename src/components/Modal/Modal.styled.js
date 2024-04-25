@@ -16,11 +16,11 @@ export const Overlay = styled.div`
 
 export const Content = styled.div`
   position: relative;
-  padding: 40px 20px;
+  padding: 60px 20px 40px;
   width: 320px;
   height: auto;
   overflow-y: auto;
-  background: #fff;
+  background: #f7f8fa;
   border-radius: 30px;
   z-index: 100;
 `;
@@ -32,7 +32,7 @@ export const CloseBtn = styled.button`
   align-items: center;
   justify-content: center;
   top: 20px;
-  right: 20px;
+  right: 10px;
 
   & svg {
     fill: #000;
