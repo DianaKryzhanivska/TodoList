@@ -11,6 +11,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
 import { configureStore } from "@reduxjs/toolkit";
+import { todosReducer } from "./todos/slice";
 
 const authPersistConfig = {
   key: "auth",
@@ -18,8 +19,14 @@ const authPersistConfig = {
   whitelist: ["token", "accessToken", "isLoggedIn"],
 };
 
+const todosPersistConfig = {
+  key: "todos",
+  storage,
+};
+
 const rootReducer = {
   auth: persistReducer(authPersistConfig, authReducer),
+  todos: persistReducer(todosPersistConfig, todosReducer),
 };
 
 export const store = configureStore({

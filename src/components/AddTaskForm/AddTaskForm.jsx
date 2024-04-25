@@ -1,14 +1,25 @@
 import React from "react";
 import { CancelBtn, Form, SubmitBtn } from "./AddTaskForm.styled";
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../redux/todos/slice";
+import { nanoid } from "nanoid";
 
 const AddTaskForm = ({ onClose }) => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       task: "",
     },
     onSubmit: (values) => {
       console.log(values);
+      dispatch(
+        addTask({
+          id: nanoid(),
+          task: values.task,
+        })
+      );
       onClose();
     },
   });
