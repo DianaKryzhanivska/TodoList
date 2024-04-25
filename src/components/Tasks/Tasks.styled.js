@@ -10,6 +10,10 @@ export const Container = styled(CommonContainer)`
     padding-top: 80px;
     padding-bottom: 200px;
   }
+
+  @media only screen and (min-width: 1440px) {
+    padding-top: 0;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -22,6 +26,12 @@ export const Wrapper = styled.div`
       width: 500px;
       height: 500px;
     }
+  }
+`;
+
+export const TextBox = styled.div`
+  @media only screen and (min-width: 1440px) {
+    padding-top: 100px;
   }
 `;
 

@@ -23,6 +23,11 @@ export const Content = styled.div`
   background: #f7f8fa;
   border-radius: 30px;
   z-index: 100;
+
+  @media only screen and (min-width: 768px) {
+    width: 420px;
+    padding: 60px 40px 40px;
+  }
 `;
 
 export const CloseBtn = styled.button`
