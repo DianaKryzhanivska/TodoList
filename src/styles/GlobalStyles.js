@@ -22,6 +22,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-style: normal;
+  background: #f7f8fa;
 }
 
 p:last-child {
