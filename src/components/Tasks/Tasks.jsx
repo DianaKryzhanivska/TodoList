@@ -18,19 +18,32 @@ import { selectTasks } from "../../redux/todos/selectors";
 import { deleteTask, reorderTasks } from "../../redux/todos/slice";
 import { toast } from "react-toastify";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import EditTaskForm from "components/EditTaskForm/EditTaskForm";
 
 const Tasks = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
 
-  const [openModal, setOpenModal] = useState(false);
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [taskToEdit, setTaskToEdit] = useState(null);
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
+  const handleOpenAddModal = () => {
+    setOpenAddModal(true);
   };
 
-  const handleCloseModal = () => {
-    setOpenModal(false);
+  const handleCloseAddModal = () => {
+    setOpenAddModal(false);
+  };
+
+  const handleOpenEditModal = (task) => {
+    setTaskToEdit(task);
+    setOpenEditModal(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setTaskToEdit(null);
+    setOpenEditModal(false);
   };
 
   const handleDoneClick = (task) => {
@@ -54,7 +67,7 @@ const Tasks = () => {
     <>
       <section>
         <Container>
-          <AddTaskBtn type="button" onClick={handleOpenModal}>
+          <AddTaskBtn type="button" onClick={handleOpenAddModal}>
             Add task
             <IoIosAddCircleOutline />
           </AddTaskBtn>
@@ -76,7 +89,10 @@ const Tasks = () => {
                         >
                           <p>{item.task}</p>
                           <BtnBox>
-                            <EditBtn type="button">
+                            <EditBtn
+                              type="button"
+                              onClick={() => handleOpenEditModal(item)}
+                            >
                               <CiEdit />
                             </EditBtn>
                             <DoneBtn onClick={() => handleDoneClick(item)}>
@@ -94,8 +110,11 @@ const Tasks = () => {
           </DragDropContext>
         </Container>
       </section>
-      <Modal isOpen={openModal} onClose={handleCloseModal}>
-        <AddTaskForm onClose={handleCloseModal} />
+      <Modal isOpen={openAddModal} onClose={handleCloseAddModal}>
+        <AddTaskForm onClose={handleCloseAddModal} />
+      </Modal>
+      <Modal isOpen={openEditModal} onClose={handleCloseEditModal}>
+        <EditTaskForm task={taskToEdit} onClose={handleCloseEditModal} />
       </Modal>
     </>
   );

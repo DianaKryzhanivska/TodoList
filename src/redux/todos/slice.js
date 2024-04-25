@@ -19,8 +19,18 @@ export const slice = createSlice({
       const [removedTask] = state.tasks.splice(startIndex, 1);
       state.tasks.splice(endIndex, 0, removedTask);
     },
+    editTask: (state, { payload }) => {
+      const { id, newData } = payload;
+      const taskToEditIndex = state.tasks.findIndex((task) => task.id === id);
+      if (taskToEditIndex !== -1) {
+        state.tasks[taskToEditIndex] = {
+          ...state.tasks[taskToEditIndex],
+          task: newData,
+        };
+      }
+    },
   },
 });
 
 export const todosReducer = slice.reducer;
-export const { addTask, deleteTask, reorderTasks } = slice.actions;
+export const { addTask, deleteTask, reorderTasks, editTask } = slice.actions;

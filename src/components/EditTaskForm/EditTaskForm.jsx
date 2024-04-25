@@ -1,22 +1,21 @@
 import React from "react";
-import { CancelBtn, Form, SubmitBtn } from "./AddTaskForm.styled";
+import { CancelBtn, Form, SubmitBtn } from "../AddTaskForm/AddTaskForm.styled";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { addTask } from "../../redux/todos/slice";
-import { nanoid } from "nanoid";
+import { editTask } from "../../redux/todos/slice";
 
-const AddTaskForm = ({ onClose }) => {
+const EditTaskForm = ({ task, onClose }) => {
   const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
-      task: "",
+      task: task.task,
     },
     onSubmit: (values) => {
       dispatch(
-        addTask({
-          id: nanoid(),
-          task: values.task,
+        editTask({
+          id: task.id,
+          newData: values.task,
         })
       );
       onClose();
@@ -26,13 +25,13 @@ const AddTaskForm = ({ onClose }) => {
   return (
     <>
       <Form onSubmit={formik.handleSubmit}>
-        <h2>Add new task</h2>
+        <h2>Edit task</h2>
         <textarea
           name="task"
           onChange={formik.handleChange}
           value={formik.values.task}
         />
-        <SubmitBtn type="submit">Add</SubmitBtn>
+        <SubmitBtn type="submit">Edit</SubmitBtn>
         <CancelBtn type="button" onClick={onClose}>
           Cancel
         </CancelBtn>
@@ -41,4 +40,4 @@ const AddTaskForm = ({ onClose }) => {
   );
 };
 
-export default AddTaskForm;
+export default EditTaskForm;
