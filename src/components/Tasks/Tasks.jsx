@@ -1,40 +1,34 @@
 import React, { useState } from "react";
 import {
-  AddTaskBtn,
   BtnBox,
   Container,
   DoneBtn,
   EditBtn,
   Item,
   List,
+  Wrapper,
 } from "./Tasks.styled";
-import { IoIosAddCircleOutline } from "react-icons/io";
 import { MdDone } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import Modal from "components/Modal/Modal";
-import AddTaskForm from "components/AddTaskForm/AddTaskForm";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTasks } from "../../redux/todos/selectors";
 import { deleteTask, reorderTasks } from "../../redux/todos/slice";
 import { toast } from "react-toastify";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import EditTaskForm from "components/EditTaskForm/EditTaskForm";
+import AddTaskBtn from "components/AddTaskBtn/AddTaskBtn";
+import { useMediaQuery } from "react-responsive";
+import todosImg from "../../images/list.png";
 
 const Tasks = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
 
-  const [openAddModal, setOpenAddModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
 
-  const handleOpenAddModal = () => {
-    setOpenAddModal(true);
-  };
-
-  const handleCloseAddModal = () => {
-    setOpenAddModal(false);
-  };
+  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
 
   const handleOpenEditModal = (task) => {
     setTaskToEdit(task);
@@ -67,52 +61,51 @@ const Tasks = () => {
     <>
       <section>
         <Container>
-          <AddTaskBtn type="button" onClick={handleOpenAddModal}>
-            Add task
-            <IoIosAddCircleOutline />
-          </AddTaskBtn>
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="tasks">
-              {(provided) => (
-                <List ref={provided.innerRef} {...provided.droppableProps}>
-                  {tasks?.map((item, index) => (
-                    <Draggable
-                      key={item.id}
-                      draggableId={item.id}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <Item
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
+          <Wrapper>
+            <div>
+              <AddTaskBtn />
+              <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable droppableId="tasks">
+                  {(provided) => (
+                    <List ref={provided.innerRef} {...provided.droppableProps}>
+                      {tasks?.map((item, index) => (
+                        <Draggable
+                          key={item.id}
+                          draggableId={item.id}
+                          index={index}
                         >
-                          <p>{item.task}</p>
-                          <BtnBox>
-                            <EditBtn
-                              type="button"
-                              onClick={() => handleOpenEditModal(item)}
+                          {(provided) => (
+                            <Item
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
                             >
-                              <CiEdit />
-                            </EditBtn>
-                            <DoneBtn onClick={() => handleDoneClick(item)}>
-                              <MdDone />
-                            </DoneBtn>
-                          </BtnBox>
-                        </Item>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </List>
-              )}
-            </Droppable>
-          </DragDropContext>
+                              <p>{item.task}</p>
+                              <BtnBox>
+                                <EditBtn
+                                  type="button"
+                                  onClick={() => handleOpenEditModal(item)}
+                                >
+                                  <CiEdit />
+                                </EditBtn>
+                                <DoneBtn onClick={() => handleDoneClick(item)}>
+                                  <MdDone />
+                                </DoneBtn>
+                              </BtnBox>
+                            </Item>
+                          )}
+                        </Draggable>
+                      ))}
+                      {provided.placeholder}
+                    </List>
+                  )}
+                </Droppable>
+              </DragDropContext>
+            </div>
+            {isDesktop && <img src={todosImg} alt="illustration" />}
+          </Wrapper>
         </Container>
       </section>
-      <Modal isOpen={openAddModal} onClose={handleCloseAddModal}>
-        <AddTaskForm onClose={handleCloseAddModal} />
-      </Modal>
       <Modal isOpen={openEditModal} onClose={handleCloseEditModal}>
         <EditTaskForm task={taskToEdit} onClose={handleCloseEditModal} />
       </Modal>

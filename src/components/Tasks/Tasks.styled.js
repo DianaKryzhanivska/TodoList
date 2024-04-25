@@ -5,28 +5,23 @@ export const Container = styled(CommonContainer)`
   padding-top: 40px;
   padding-bottom: 40px;
   background: #f7f8fa;
+
+  @media only screen and (min-width: 768px) {
+    padding-top: 80px;
+    padding-bottom: 200px;
+  }
 `;
 
-export const AddTaskBtn = styled.button`
-  color: #fff;
-  background: ${({ theme }) => theme.colors.dark};
-  padding: 8px 18px;
-  border: 1px solid #fff;
-  border-radius: 20px;
-  font-size: 16px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 40px;
-  transition: 0.3s ease;
+export const Wrapper = styled.div`
+  @media only screen and (min-width: 1440px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 
-  & svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.light};
+    & img {
+      width: 500px;
+      height: 500px;
+    }
   }
 `;
 
@@ -34,6 +29,11 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media only screen and (min-width: 1440px) {
+    width: 580px;
+    margin-top: 20px;
+  }
 `;
 
 export const Item = styled.li`
@@ -58,10 +58,15 @@ export const EditBtn = styled.button`
   align-items: center;
   justify-content: center;
   background: transparent;
+  transition: 0.3s ease;
 
   & svg {
     width: 30px;
     height: 30px;
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.light};
   }
 `;
 
