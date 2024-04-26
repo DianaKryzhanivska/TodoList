@@ -1,16 +1,16 @@
 # <p align="center">TodoList</p>
 
-![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/home.png)
+![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/assets/home.png)
 
-![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/register.png)
+![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/assets/register.png)
 
-![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/login.png)
+![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/assets/login.png)
 
-![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/tasks.png)
+![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/assets/tasks.png)
 
-![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/add.png)
+![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/assets/add.png)
 
-![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/edit.png)
+![image](https://github.com/DianaKryzhanivska/TodoList/blob/main/assets/edit.png)
 
 An application for a task management.
 The website is designed with a mobile-first approach. Adaptive design with
