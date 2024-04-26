@@ -6,7 +6,6 @@ import {
   EditBtn,
   Item,
   List,
-  TextBox,
   Wrapper,
 } from "./Tasks.styled";
 import { MdDone } from "react-icons/md";
@@ -63,7 +62,7 @@ const Tasks = () => {
       <section>
         <Container>
           <Wrapper>
-            <TextBox>
+            <div>
               <AddTaskBtn />
               {tasks?.length > 0 ? (
                 <DragDropContext onDragEnd={onDragEnd}>
@@ -111,7 +110,7 @@ const Tasks = () => {
               ) : (
                 <p>Let's add your first task to the list!</p>
               )}
-            </TextBox>
+            </div>
             {isDesktop && <img src={todosImg} alt="illustration" />}
           </Wrapper>
         </Container>
