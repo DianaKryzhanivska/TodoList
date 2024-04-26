@@ -22,3 +22,14 @@ export const Btn = styled.button`
     background: ${({ theme }) => theme.colors.light};
   }
 `;
+
+export const Text = styled.p`
+  text-align: center;
+  font-size: 18px;
+
+  & a {
+    color: ${({ theme }) => theme.colors.light};
+    font-weight: 600;
+    text-decoration: underline;
+  }
+`;

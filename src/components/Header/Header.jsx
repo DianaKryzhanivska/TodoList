@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import logo from "../../images/logo.png";
 import {
   AuthBurgerBox,
@@ -12,7 +13,7 @@ import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import { useMediaQuery } from "react-responsive";
 import NavLinks from "./NavLinks/NavLinks";
 import AuthLinks from "./AuthLinks/AuthLinks";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
 import { getUserInfoThunk } from "../../redux/auth/operations";
 

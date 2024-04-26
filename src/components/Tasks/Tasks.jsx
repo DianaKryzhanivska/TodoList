@@ -65,43 +65,52 @@ const Tasks = () => {
           <Wrapper>
             <TextBox>
               <AddTaskBtn />
-              <DragDropContext onDragEnd={onDragEnd}>
-                <Droppable droppableId="tasks">
-                  {(provided) => (
-                    <List ref={provided.innerRef} {...provided.droppableProps}>
-                      {tasks?.map((item, index) => (
-                        <Draggable
-                          key={item.id}
-                          draggableId={item.id}
-                          index={index}
-                        >
-                          {(provided) => (
-                            <Item
-                              ref={provided.innerRef}
-                              {...provided.draggableProps}
-                              {...provided.dragHandleProps}
-                            >
-                              <p>{item.task}</p>
-                              <BtnBox>
-                                <EditBtn
-                                  type="button"
-                                  onClick={() => handleOpenEditModal(item)}
-                                >
-                                  <CiEdit />
-                                </EditBtn>
-                                <DoneBtn onClick={() => handleDoneClick(item)}>
-                                  <MdDone />
-                                </DoneBtn>
-                              </BtnBox>
-                            </Item>
-                          )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
-                    </List>
-                  )}
-                </Droppable>
-              </DragDropContext>
+              {tasks?.length > 0 ? (
+                <DragDropContext onDragEnd={onDragEnd}>
+                  <Droppable droppableId="tasks">
+                    {(provided) => (
+                      <List
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                      >
+                        {tasks?.map((item, index) => (
+                          <Draggable
+                            key={item.id}
+                            draggableId={item.id}
+                            index={index}
+                          >
+                            {(provided) => (
+                              <Item
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                              >
+                                <p>{item.task}</p>
+                                <BtnBox>
+                                  <EditBtn
+                                    type="button"
+                                    onClick={() => handleOpenEditModal(item)}
+                                  >
+                                    <CiEdit />
+                                  </EditBtn>
+                                  <DoneBtn
+                                    onClick={() => handleDoneClick(item)}
+                                  >
+                                    <MdDone />
+                                  </DoneBtn>
+                                </BtnBox>
+                              </Item>
+                            )}
+                          </Draggable>
+                        ))}
+                        {provided.placeholder}
+                      </List>
+                    )}
+                  </Droppable>
+                </DragDropContext>
+              ) : (
+                <p>Let's add your first task to the list!</p>
+              )}
             </TextBox>
             {isDesktop && <img src={todosImg} alt="illustration" />}
           </Wrapper>
