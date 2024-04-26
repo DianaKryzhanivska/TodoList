@@ -43,4 +43,4 @@ react-toastify, react-responsive.
 1. Clone this repository to your local computer.
 2. Open a terminal and navigate to the root of your project.
 3. Run `npm install` command to install project dependencies.
-4. Run the `npm run start` command to start the application's web server
+4. Run the `npm start` command to start the application's web server
